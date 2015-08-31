@@ -98,7 +98,10 @@ describe('linkedList', function () {
     var yellowNode = new Node('yellow');
     var redNode = new Node('red');
     list.append(yellowNode);
-    // list.append(redNode);
-    console.log(list);
+    list.append(redNode);
+
+    assert.equal(list.distance("blue", "red"), 2);
+    assert.equal(list.distance("blue", "yellow"), 1);
+    assert.equal(list.distance("yellow", "red"), 1);
   });
 });

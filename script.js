@@ -6,17 +6,19 @@ function Node(data, link) {
 function linkedList() {}
 
 linkedList.prototype.append = function(node) {
-  if (this.head === undefined) this.head = node;
-
-  var current = this.head;
-  while (current.link) current = current.link;
-  current.link = node;
+  if (this.head === undefined) {
+    this.head = node;
+  } else {
+    var current = this.head;
+    while (current.link) {
+      current = current.link;
+    }
+    current.link = node;
+  }
 };
 
 linkedList.prototype.prepend = function(node) {
-  if (this.head === undefined) this.head = node;
-
-  node.link = this.head;
+  if (this.head) node.link = this.head;
   this.head = node;
 };
 
@@ -125,3 +127,7 @@ linkedList.prototype.removeByValue = function(data) {
   prev.link = current.link;
   return current;
 };
+
+linkedList.prototype.distance = function(data1, data2) {
+  return this.find(data2) - this.find(data1);
+}
