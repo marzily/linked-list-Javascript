@@ -10,9 +10,7 @@ linkedList.prototype.append = function(node) {
     this.head = node;
   } else {
     var current = this.head;
-    while (current.link) {
-      current = current.link;
-    }
+    while (current.link) current = current.link;
     current.link = node;
   }
 };
