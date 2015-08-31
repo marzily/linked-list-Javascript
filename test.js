@@ -63,6 +63,7 @@ describe('linkedList', function () {
 
   it('pops an element from the end of the list', function() {
     assert.equal(list.pop().data, "yellow");
+    assert.equal(list.includes("yellow"), false);
   });
 
   it('counts the number of elements in the list', function() {
@@ -79,19 +80,30 @@ describe('linkedList', function () {
 
   it('finds the value of the node by index', function() {
     assert.equal(list.findByIndex(1).data, "green");
+    assert.equal(list.findByIndex(0).data, "red");
+    assert.equal(list.findByIndex(2).data, "blue");
   });
 
   it('finds the position of the first occurrence of a value', function() {
     assert.equal(list.find("green"), 1);
+
+    var newGreenNode = new Node("green");
+    list.append(newGreenNode);
+
+    assert.equal(list.tail().data, "green");
+    assert.equal(list.find("green"), 1);
   });
 
   it('removes the value at the specified index', function() {
-    assert.equal(list.removeByIndex(1).data, "green");
+    assert.equal(list.removeByIndex(0).data, "red");
+    assert.equal(list.includes("red"), false);
+    assert.equal(list.head.data, "green");
   });
 
   it('removes the first occurrence of the specified value', function() {
-    assert.equal(list.removeByValue("red").data, "red");
+    assert.equal(list.removeByValue("green").data, "green");
     assert.equal(list.head.data, "blue");
+    assert.equal(list.head.link.data, "green");
   });
 
   it('finds the distance between two nodes', function() {
@@ -100,8 +112,9 @@ describe('linkedList', function () {
     list.append(yellowNode);
     list.append(redNode);
 
-    assert.equal(list.distance("blue", "red"), 2);
-    assert.equal(list.distance("blue", "yellow"), 1);
+    assert.equal(list.distance("blue", "red"), 3);
+    assert.equal(list.distance("blue", "yellow"), 2);
+    assert.equal(list.distance("green", "red"), 2);
     assert.equal(list.distance("yellow", "red"), 1);
   });
 });

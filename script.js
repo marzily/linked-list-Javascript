@@ -37,7 +37,7 @@ linkedList.prototype.insert = function(node, index) {
 };
 
 linkedList.prototype.includes = function(data) {
-  for(var current = this.head; current !== undefined; current = current.link) {
+  for(var current = this.head; current; current = current.link) {
     if (current.data === data) return true;
   }
   return false;
@@ -99,6 +99,11 @@ linkedList.prototype.find = function(data) {
 
 linkedList.prototype.removeByIndex = function(index) {
   var current = this.head;
+
+  if (index === 0) {
+    this.head = this.head.link;
+    return current;
+  }
 
   var count = 0;
   while (count !== index) {
