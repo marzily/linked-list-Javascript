@@ -85,7 +85,7 @@ IterativeLinkedList.prototype.findByIndex = function(index) {
   return current;
 };
 
-IterativeLinkedList.prototype.find = function(data) {
+IterativeLinkedList.prototype.findByValue = function(data) {
   var current = this.head;
 
   var index = 0;
@@ -236,5 +236,15 @@ RecursiveLinkedList.prototype.findByIndex = function(index, listNode) {
     return listNode;
   } else if (index < this.count()) {
     return this.findByIndex(index - 1, listNode.link);
+  }
+};
+
+RecursiveLinkedList.prototype.findByValue = function(data, listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (listNode.data === data) {
+    return 0;
+  } else {
+    return 1 + this.findByValue(data, listNode.link);
   }
 };
