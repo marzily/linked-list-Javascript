@@ -136,7 +136,7 @@ IterativeLinkedList.prototype.removeByValue = function(data) {
 };
 
 IterativeLinkedList.prototype.distance = function(data1, data2) {
-  return this.find(data2) - this.find(data1);
+  return this.findByValue(data2) - this.findByValue(data1);
 }
 
 // Recursive Linked List
@@ -283,4 +283,8 @@ RecursiveLinkedList.prototype.removeByValue = function(data, listNode) {
   } else {
     return removeByValue(data, listNode.link);
   }
+};
+
+RecursiveLinkedList.prototype.distance = function(value1, value2) {
+  return this.findByValue(value2) - this.findByValue(value1);
 };

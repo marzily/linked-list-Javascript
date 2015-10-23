@@ -119,17 +119,17 @@ describe('Iterative Linked List', function () {
     assert.equal(list.head.link.data, "green");
   });
 
-  // it('finds the distance between two nodes', function() {
-  //   var yellowNode = new Node('yellow');
-  //   var redNode = new Node('red');
-  //   list.append(yellowNode);
-  //   list.append(redNode);
-  //
-  //   assert.equal(list.distance("blue", "red"), 3);
-  //   assert.equal(list.distance("blue", "yellow"), 2);
-  //   assert.equal(list.distance("green", "red"), 2);
-  //   assert.equal(list.distance("yellow", "red"), 1);
-  // });
+  it('finds the distance between two nodes', function() {
+    var yellowNode = new Node('yellow');
+    var redNode = new Node('red');
+    list.append(yellowNode);
+    list.append(redNode);
+
+    assert.equal(list.distance("blue", "red"), 3);
+    assert.equal(list.distance("blue", "yellow"), 2);
+    assert.equal(list.distance("green", "red"), 2);
+    assert.equal(list.distance("yellow", "red"), 1);
+  });
 });
 
 
@@ -246,15 +246,15 @@ describe('Recursive Linked List', function () {
     assert.equal(list.head.link.data, "green");
   });
 
-  // it('finds the distance between two nodes', function() {
-  //   var yellowNode = new Node('yellow');
-  //   var redNode = new Node('red');
-  //   list.append(yellowNode);
-  //   list.append(redNode);
-  //
-  //   assert.equal(list.distance("blue", "red"), 3);
-  //   assert.equal(list.distance("blue", "yellow"), 2);
-  //   assert.equal(list.distance("green", "red"), 2);
-  //   assert.equal(list.distance("yellow", "red"), 1);
-  // });
+  it('finds the distance between two nodes', function() {
+    var yellowNode = new Node('yellow');
+    var redNode = new Node('red');
+    list.append(yellowNode);
+    list.append(redNode);
+
+    assert.equal(list.distance("blue", "red"), 3);
+    assert.equal(list.distance("blue", "yellow"), 2);
+    assert.equal(list.distance("green", "red"), 2);
+    assert.equal(list.distance("yellow", "red"), 1);
+  });
 });
