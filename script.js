@@ -218,3 +218,13 @@ RecursiveLinkedList.prototype.count = function(listNode) {
     return 1 + this.count(listNode.link);
   }
 };
+
+RecursiveLinkedList.prototype.tail = function(listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (listNode === undefined || listNode.link === undefined) {
+    return listNode;
+  } else {
+    return this.tail(listNode.link);
+  }
+};

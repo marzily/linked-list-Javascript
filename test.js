@@ -80,15 +80,15 @@ describe('Iterative Linked List', function () {
   it('counts the number of elements in the list', function() {
     assert.equal(list.count(), 3);
   });
-  //
-  // it('returns the head value at the beginning of the list', function() {
-  //   assert.equal(list.head.data, "red");
-  // });
-  //
-  // it('returns the tail value at the end of the list', function() {
-  //   assert.equal(list.tail().data, "blue");
-  // });
-  //
+
+  it('returns the head value at the beginning of the list', function() {
+    assert.equal(list.head.data, "red");
+  });
+
+  it('returns the tail value at the end of the list', function() {
+    assert.equal(list.tail().data, "blue");
+  });
+
   // it('finds the value of the node by index', function() {
   //   assert.equal(list.findByIndex(1).data, "green");
   //   assert.equal(list.findByIndex(0).data, "red");
@@ -205,15 +205,15 @@ describe('Recursive Linked List', function () {
     assert.equal(orangeList.count(), 1);
     assert.equal(list.count(), 3);
   });
-  //
-  // it('returns the head value at the beginning of the list', function() {
-  //   assert.equal(list.head.data, "red");
-  // });
-  //
-  // it('returns the tail value at the end of the list', function() {
-  //   assert.equal(list.tail().data, "blue");
-  // });
-  //
+
+  it('returns the head value at the beginning of the list', function() {
+    assert.equal(list.head.data, "red");
+  });
+
+  it('returns the tail value at the end of the list', function() {
+    assert.equal(list.tail().data, "blue");
+  });
+
   // it('finds the value of the node by index', function() {
   //   assert.equal(list.findByIndex(1).data, "green");
   //   assert.equal(list.findByIndex(0).data, "red");
