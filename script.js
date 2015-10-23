@@ -206,3 +206,15 @@ RecursiveLinkedList.prototype.pop = function(listNode) {
     return this.pop(listNode.link);
   }
 };
+
+RecursiveLinkedList.prototype.count = function(listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (listNode === undefined) {
+    return 0;
+  } else if (listNode.link === undefined) {
+    return 1;
+  } else {
+    return 1 + this.count(listNode.link);
+  }
+};

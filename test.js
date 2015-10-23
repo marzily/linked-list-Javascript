@@ -77,9 +77,9 @@ describe('Iterative Linked List', function () {
     assert.equal(list.includes("yellow"), false);
   });
 
-  // it('counts the number of elements in the list', function() {
-  //   assert.equal(list.count(), 3);
-  // });
+  it('counts the number of elements in the list', function() {
+    assert.equal(list.count(), 3);
+  });
   //
   // it('returns the head value at the beginning of the list', function() {
   //   assert.equal(list.head.data, "red");
@@ -178,12 +178,12 @@ describe('Recursive Linked List', function () {
   });
 
   it('lets you know if a value is in the list', function() {
-    secondList = new RecursiveLinkedList;
-    assert.equal(secondList.includes("orange"), false);
+    orangeList = new RecursiveLinkedList;
+    assert.equal(orangeList.includes("orange"), false);
 
     var orangeNode = new Node("orange");
-    secondList.append(orangeNode);
-    assert.equal(secondList.includes("orange"), true);
+    orangeList.append(orangeNode);
+    assert.equal(orangeList.includes("orange"), true);
 
     assert.equal(list.includes("orange"), false);
     assert.equal(list.includes("red"), true);
@@ -198,9 +198,13 @@ describe('Recursive Linked List', function () {
     assert.equal(list.includes("yellow"), false);
   });
 
-  // it('counts the number of elements in the list', function() {
-  //   assert.equal(list.count(), 3);
-  // });
+  it('counts the number of elements in the list', function() {
+    var emptyList = new RecursiveLinkedList;
+
+    assert.equal(emptyList.count(), 0);
+    assert.equal(orangeList.count(), 1);
+    assert.equal(list.count(), 3);
+  });
   //
   // it('returns the head value at the beginning of the list', function() {
   //   assert.equal(list.head.data, "red");
