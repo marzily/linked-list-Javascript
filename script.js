@@ -190,3 +190,19 @@ RecursiveLinkedList.prototype.includes = function(data, listNode) {
     return this.includes(data, listNode.link);
   }
 };
+
+RecursiveLinkedList.prototype.pop = function(listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (listNode === undefined || listNode.link === undefined) {
+    node = listNode;
+    this.listNode = undefined;
+    return node
+  } else if (listNode.link.link === undefined) {
+    node = listNode.link;
+    listNode.link = undefined;
+    return node;
+  } else {
+    return this.pop(listNode.link);
+  }
+};

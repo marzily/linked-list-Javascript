@@ -71,10 +71,11 @@ describe('Iterative Linked List', function () {
     assert.equal(list.includes("yellow"), true);
   });
 
-  // it('pops an element from the end of the list', function() {
-  //   assert.equal(list.pop().data, "yellow");
-  //   assert.equal(list.includes("yellow"), false);
-  // });
+  it('pops an element from the end of the list', function() {
+    assert.equal(list.pop().data, "red");
+    assert.equal(list.pop().data, "yellow");
+    assert.equal(list.includes("yellow"), false);
+  });
 
   // it('counts the number of elements in the list', function() {
   //   assert.equal(list.count(), 3);
@@ -191,11 +192,12 @@ describe('Recursive Linked List', function () {
     assert.equal(list.includes("yellow"), true);
   });
 
-  // it('pops an element from the end of the list', function() {
-  //   assert.equal(list.pop().data, "yellow");
-  //   assert.equal(list.includes("yellow"), false);
-  // });
-  //
+  it('pops an element from the end of the list', function() {
+    assert.equal(list.pop().data, "red");
+    assert.equal(list.pop().data, "yellow");
+    assert.equal(list.includes("yellow"), false);
+  });
+
   // it('counts the number of elements in the list', function() {
   //   assert.equal(list.count(), 3);
   // });
@@ -248,10 +250,3 @@ describe('Recursive Linked List', function () {
   //   assert.equal(list.distance("yellow", "red"), 1);
   // });
 });
-
-// 6 j
-// 3 h
-// 2 p
-// 2 pineapple
-// 2 blue
-// 6 raisin
