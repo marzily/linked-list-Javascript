@@ -268,3 +268,19 @@ RecursiveLinkedList.prototype.removeByIndex = function(index, listNode) {
     return this.removeByIndex(index - 1, listNode.link);
   }
 };
+
+RecursiveLinkedList.prototype.removeByValue = function(data, listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (this.head.data === data) {
+    node = this.head;
+    this.head = this.head.link;
+    return node;
+  } else if (listNode.link.data === data) {
+    node = listNode.link;
+    listNode.link = listNode.link.link;
+    return node;
+  } else {
+    return removeByValue(data, listNode.link);
+  }
+};
