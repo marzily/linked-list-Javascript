@@ -1,11 +1,13 @@
+// Node
 function Node(data, link) {
   this.data = data;
   this.link = link;
 }
 
-function linkedList() {}
+// Iterative Linked List
+function IterativeLinkedList() {}
 
-linkedList.prototype.append = function(node) {
+IterativeLinkedList.prototype.append = function(node) {
   if (this.head === undefined) {
     this.head = node;
   } else {
@@ -15,12 +17,12 @@ linkedList.prototype.append = function(node) {
   }
 };
 
-linkedList.prototype.prepend = function(node) {
+IterativeLinkedList.prototype.prepend = function(node) {
   if (this.head) node.link = this.head;
   this.head = node;
 };
 
-linkedList.prototype.insert = function(node, index) {
+IterativeLinkedList.prototype.insert = function(node, index) {
   var current = this.head;
 
   var count = 0;
@@ -34,14 +36,14 @@ linkedList.prototype.insert = function(node, index) {
   node.link = current;
 };
 
-linkedList.prototype.includes = function(data) {
+IterativeLinkedList.prototype.includes = function(data) {
   for(var current = this.head; current; current = current.link) {
     if (current.data === data) return true;
   }
   return false;
 };
 
-linkedList.prototype.pop = function() {
+IterativeLinkedList.prototype.pop = function() {
   var current = this.head;
 
   while (current.link) {
@@ -53,7 +55,7 @@ linkedList.prototype.pop = function() {
   return current;
 };
 
-linkedList.prototype.count = function() {
+IterativeLinkedList.prototype.count = function() {
   var current = this.head;
 
   var count = 0;
@@ -65,13 +67,13 @@ linkedList.prototype.count = function() {
   return count;
 };
 
-linkedList.prototype.tail = function() {
+IterativeLinkedList.prototype.tail = function() {
   var current = this.head;
   while (current.link) current = current.link;
   return current;
 };
 
-linkedList.prototype.findByIndex = function(index) {
+IterativeLinkedList.prototype.findByIndex = function(index) {
   var current = this.head;
 
   var count = 0;
@@ -83,7 +85,7 @@ linkedList.prototype.findByIndex = function(index) {
   return current;
 };
 
-linkedList.prototype.find = function(data) {
+IterativeLinkedList.prototype.find = function(data) {
   var current = this.head;
 
   var index = 0;
@@ -95,7 +97,7 @@ linkedList.prototype.find = function(data) {
   return index;
 };
 
-linkedList.prototype.removeByIndex = function(index) {
+IterativeLinkedList.prototype.removeByIndex = function(index) {
   var current = this.head;
 
   if (index === 0) {
@@ -114,7 +116,7 @@ linkedList.prototype.removeByIndex = function(index) {
   return current;
 };
 
-linkedList.prototype.removeByValue = function(data) {
+IterativeLinkedList.prototype.removeByValue = function(data) {
   var current = this.head;
 
   if (this.head.data === data) {
@@ -131,6 +133,60 @@ linkedList.prototype.removeByValue = function(data) {
   return current;
 };
 
-linkedList.prototype.distance = function(data1, data2) {
+IterativeLinkedList.prototype.distance = function(data1, data2) {
   return this.find(data2) - this.find(data1);
 }
+
+// Recursive Linked List
+function RecursiveLinkedList() {}
+
+RecursiveLinkedList.prototype.setListNode = function(listNode) {
+  return typeof listNode === "undefined" ? this.head : listNode;
+}
+
+RecursiveLinkedList.prototype.append = function(node, listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (this.head === undefined) {
+    this.head = node;
+  } else if (listNode.link === undefined) {
+    listNode.link = node;
+  } else {
+    this.append(node, listNode.link);
+  }
+};
+
+RecursiveLinkedList.prototype.prepend = function(node) {
+  if (this.head) node.link = this.head;
+  this.head = node;
+};
+
+RecursiveLinkedList.prototype.insert = function(node, index, listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (index === 0) {
+    node.link = this.head;
+    this.head = node;
+  } else if (index === 1) {
+    node.link = listNode.link;
+    listNode.link = node;
+  } else {
+    insert(node, index - 1, listNode.link);
+  }
+};
+
+RecursiveLinkedList.prototype.includesConditional = function(data, listNode) {
+  return listNode.link === undefined && listNode.data !== data
+};
+
+RecursiveLinkedList.prototype.includes = function(data, listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (listNode === undefined || this.includesConditional(data, listNode)) {
+    return false;
+  } else if (listNode.data === data) {
+    return true;
+  } else {
+    return this.includes(data, listNode.link);
+  }
+};
