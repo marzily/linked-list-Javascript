@@ -100,7 +100,9 @@ IterativeLinkedList.prototype.findByValue = function(data) {
 IterativeLinkedList.prototype.removeByIndex = function(index) {
   var current = this.head;
 
-  if (index === 0) {
+  if (index > this.count()) {
+    return undefined;
+  } else if (index === 0) {
     this.head = this.head.link;
     return current;
   }
@@ -246,5 +248,23 @@ RecursiveLinkedList.prototype.findByValue = function(data, listNode) {
     return 0;
   } else {
     return 1 + this.findByValue(data, listNode.link);
+  }
+};
+
+RecursiveLinkedList.prototype.removeByIndex = function(index, listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (index > this.count()) {
+    return undefined;
+  } else if (index === 0) {
+    node = this.head;
+    this.head = this.head.link;
+    return node;
+  } else if (index === 1 && listNode) {
+    node = listNode.link;
+    listNode.link = listNode.link.link;
+    return node;
+  } else {
+    return this.removeByIndex(index - 1, listNode.link);
   }
 };

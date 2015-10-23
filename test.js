@@ -94,7 +94,7 @@ describe('Iterative Linked List', function () {
     assert.equal(list.findByIndex(0).data, "red");
     assert.equal(list.findByIndex(2).data, "blue");
   });
-  //
+
   it('finds the position of the first occurrence of a value', function() {
     assert.equal(list.findByValue("green"), 1);
 
@@ -104,12 +104,14 @@ describe('Iterative Linked List', function () {
     assert.equal(list.tail().data, "green");
     assert.equal(list.findByValue("green"), 1);
   });
-  //
-  // it('removes the value at the specified index', function() {
-  //   assert.equal(list.removeByIndex(0).data, "red");
-  //   assert.equal(list.includes("red"), false);
-  //   assert.equal(list.head.data, "green");
-  // });
+
+  it('removes the value at the specified index', function() {
+    assert.equal(list.removeByIndex(0).data, "red");
+    assert.equal(list.includes("red"), false);
+    assert.equal(list.head.data, "green");
+
+    assert.equal(list.removeByIndex(7), undefined);
+  });
   //
   // it('removes the first occurrence of the specified value', function() {
   //   assert.equal(list.removeByValue("green").data, "green");
@@ -229,12 +231,14 @@ describe('Recursive Linked List', function () {
     assert.equal(list.tail().data, "green");
     assert.equal(list.findByValue("green"), 1);
   });
+//
+  it('removes the value at the specified index', function() {
+    assert.equal(list.removeByIndex(0).data, "red");
+    assert.equal(list.includes("red"), false);
+    assert.equal(list.head.data, "green");
 
-  // it('removes the value at the specified index', function() {
-  //   assert.equal(list.removeByIndex(0).data, "red");
-  //   assert.equal(list.includes("red"), false);
-  //   assert.equal(list.head.data, "green");
-  // });
+    assert.equal(list.removeByIndex(7), undefined);
+  });
   //
   // it('removes the first occurrence of the specified value', function() {
   //   assert.equal(list.removeByValue("green").data, "green");
