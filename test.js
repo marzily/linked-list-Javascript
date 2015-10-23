@@ -89,11 +89,11 @@ describe('Iterative Linked List', function () {
     assert.equal(list.tail().data, "blue");
   });
 
-  // it('finds the value of the node by index', function() {
-  //   assert.equal(list.findByIndex(1).data, "green");
-  //   assert.equal(list.findByIndex(0).data, "red");
-  //   assert.equal(list.findByIndex(2).data, "blue");
-  // });
+  it('finds the value of the node by index', function() {
+    assert.equal(list.findByIndex(1).data, "green");
+    assert.equal(list.findByIndex(0).data, "red");
+    assert.equal(list.findByIndex(2).data, "blue");
+  });
   //
   // it('finds the position of the first occurrence of a value', function() {
   //   assert.equal(list.find("green"), 1);
@@ -214,12 +214,12 @@ describe('Recursive Linked List', function () {
     assert.equal(list.tail().data, "blue");
   });
 
-  // it('finds the value of the node by index', function() {
-  //   assert.equal(list.findByIndex(1).data, "green");
-  //   assert.equal(list.findByIndex(0).data, "red");
-  //   assert.equal(list.findByIndex(2).data, "blue");
-  // });
-  //
+  it('finds the value of the node by index', function() {
+    assert.equal(list.findByIndex(1).data, "green");
+    assert.equal(list.findByIndex(0).data, "red");
+    // assert.equal(list.findByIndex(2).data, "blue");
+  });
+
   // it('finds the position of the first occurrence of a value', function() {
   //   assert.equal(list.find("green"), 1);
   //

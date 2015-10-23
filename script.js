@@ -228,3 +228,13 @@ RecursiveLinkedList.prototype.tail = function(listNode) {
     return this.tail(listNode.link);
   }
 };
+
+RecursiveLinkedList.prototype.findByIndex = function(index, listNode) {
+  listNode = this.setListNode(listNode);
+
+  if (index === 0) {
+    return listNode;
+  } else if (index < this.count()) {
+    return this.findByIndex(index - 1, listNode.link);
+  }
+};
