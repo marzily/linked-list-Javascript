@@ -198,7 +198,7 @@ RecursiveLinkedList.prototype.pop = function(listNode) {
 
   if (listNode === undefined || listNode.link === undefined) {
     node = listNode;
-    this.listNode = undefined;
+    this.head = undefined;
     return node
   } else if (listNode.link.link === undefined) {
     node = listNode.link;

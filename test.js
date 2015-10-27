@@ -200,6 +200,14 @@ describe('Recursive Linked List', function () {
     assert.equal(list.includes("yellow"), false);
   });
 
+  it('correctly pops the last element from a single element list', function() {
+    var purpleList = new RecursiveLinkedList;
+    purpleList.append(new Node("purple"));
+
+    assert.equal(purpleList.pop().data, "purple");
+    assert.equal(purpleList.pop(), undefined);
+  });
+
   it('counts the number of elements in the list', function() {
     var emptyList = new RecursiveLinkedList;
 
